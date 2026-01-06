@@ -39,8 +39,7 @@ sudo xbps-install -S python3 python3-pip tk espeak-ng ffmpeg
 
 ### Pip Install
 ```bash
-pip install deep-translator gTTS pyttsx3 arabic-reshaper python-bidi --break-system-packages
-
+pip install deep-translator gTTS pyttsx3 arabic-reshaper python-bidi python-vlc --break-system-packages
 ```
 
 # Installation 
