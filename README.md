@@ -31,7 +31,7 @@ sudo dnf install python3 python3-pip python3-tkinter espeak-ng ffmpeg
 sudo apt install python3 python3-pip python3-tk espeak-ng ffmpeg
 ```
 
-# Void Linux (xbps)
+### Void Linux (xbps)
 
 ```bash
 sudo xbps-install -S python3 python3-pip tk espeak-ng ffmpeg
@@ -39,7 +39,19 @@ sudo xbps-install -S python3 python3-pip tk espeak-ng ffmpeg
 
 ### Pip Install
 ```bash
-pip install googletrans==4.0.0-rc1 gTTS pyttsx3 colorama --break-system-packages
+pip install deep-translator gTTS pyttsx3 arabic-reshaper python-bidi --break-system-packages
+
+```
+
+# Installation 
+- Save the python code as main.py.
+
+- Save the bash code as install.sh.
+
+- Make the installer executable and run it:
+```bash
+chmod +x install.sh
+./install.sh
 ```
 
 
