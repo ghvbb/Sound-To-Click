@@ -186,4 +186,3 @@ if __name__ == "__main__":
         app.tui_mode()
     else:
         app.gui_mode()
-
