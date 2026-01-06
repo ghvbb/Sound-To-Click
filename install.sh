@@ -10,7 +10,6 @@ echo "========================================="
 echo "      $APP_NAME Installer / Updater"
 echo "========================================="
 
-# سؤال المستخدم تثبيت جديد أم تحديث
 echo "Do you want to (1) Install or (2) Update? [1/2]: "
 read -r choice
 
@@ -23,12 +22,10 @@ if [[ "$choice" == "2" ]]; then
     fi
 fi
 
-# إنشاء المجلدات
 mkdir -p "$INSTALL_DIR"
 mkdir -p "$BIN_DIR"
 mkdir -p "$HOME/sounds"
 
-# تثبيت dependencies
 echo "Installing system dependencies..."
 if ! command -v espeak-ng &>/dev/null; then
     if [ -f /etc/arch-release ]; then
@@ -40,17 +37,14 @@ if ! command -v espeak-ng &>/dev/null; then
     fi
 fi
 
-# إنشاء virtual environment
 echo "Creating Python virtual environment..."
 python3 -m venv "$INSTALL_DIR/venv"
 "$INSTALL_DIR/venv/bin/pip" install --upgrade pip
 "$INSTALL_DIR/venv/bin/pip" install deep-translator gTTS pyttsx3 arabic-reshaper python-bidi colorama
 
-# نسخ ملفات المشروع
 echo "Copying project files..."
 cp -r main.py "$INSTALL_DIR/"
 
-# إنشاء الاختصارات
 echo "Creating executables..."
 cat <<EOF > "$BIN_DIR/sound-tui"
 #!/bin/bash
@@ -64,7 +58,6 @@ EOF
 
 chmod +x "$BIN_DIR/sound-tui" "$BIN_DIR/sound-gui"
 
-# ضبط PATH تلقائيًا
 echo "Would you like to add $BIN_DIR to your PATH? [yes/no]: "
 read -r add_path
 if [[ "$add_path" =~ ^(yes|y)$ ]]; then
@@ -87,7 +80,6 @@ if [[ "$add_path" =~ ^(yes|y)$ ]]; then
     fi
 fi
 
-# إنشاء ملف desktop
 echo "Creating desktop entry..."
 cat <<EOF > "$APP_ENTRY"
 [Desktop Entry]
